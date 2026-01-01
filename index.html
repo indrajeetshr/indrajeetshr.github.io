@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy New Year Diti</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{
+    background:#ffd6e8;
+    overflow:hidden;
+}
+.screen{
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+.show{display:flex}
+
+/* floating hearts */
+.heart{
+    position:absolute;
+    color:#ff4f92;
+    font-size:22px;
+    animation: float 5s linear infinite;
+    opacity:0.7;
+}
+@keyframes float{
+    0%{transform:translateY(0);opacity:1}
+    100%{transform:translateY(-800px);opacity:0}
+}
+
+/* Button styles */
+.btn{
+    padding:14px 28px;
+    border-radius:30px;
+    border:none;
+    background:#ff4f92;
+    color:white;
+    font-size:18px;
+    margin-top:20px;
+    display:none;
+}
+.showBtn{display:inline-block}
+
+/************ PAGE 2 PAPERS ************/
+#paperArea{
+    position:relative;
+    width:100%;
+    height:80vh;
+
+}
+
+/* REALISTIC GRID PAPERS */
+.paper{
+    width:250px;
+    height: 250px;
+    background:#fffdf4;
+    border:2px solid #d4c7b3;
+    background-image:
+    linear-gradient(#dcdcdc 1px, transparent 1px),
+    linear-gradient(90deg,#dcdcdc 1px, transparent 1px);
+    background-size:18px 18px;
+    box-shadow:6px 8px 15px rgba(0,0,0,0.5);
+    position:absolute;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    padding:15px;
+    overflow: auto;
+    border-radius:6px;
+    cursor:grab;
+    touch-action:none;
+
+}
+
+/* 🔄 REVERSED ORDER NOW */
+.paper:nth-child(1){top:48%; transform:translate(-54%,-50%) rotate(5deg);}
+.paper:nth-child(2){top:50%; transform:translate(-50%,-50%) rotate(-9deg);}
+.paper:nth-child(3){top:49%; transform:translate(-50%,-50%) rotate(3deg);}
+.paper:nth-child(4){top:53%; transform:translate(-50%,-50%) rotate(-3deg);}
+
+/* Images inside bottom papers */
+.paper img{
+    width:80%;
+    height:85%;
+    object-fit:cover;
+    border-radius:6px;
+    pointer-events:none;
+    -webkit-user-drag:none;
+    user-drag:none;
+}
+
+/******** NEXT BUTTON ********/
+.nextBtn{
+    padding:12px 24px;
+    border-radius:20px;
+    background:#ff4f92;
+    border:none;
+    color:white;
+    font-size:18px;
+    display:none;
+}
+
+/******** OVAL Spark Button ********/
+.sparkBtn{
+    padding:12px 20px;
+    border-radius:40px;
+    background:white;
+    border:3px dashed #ff4f92;
+    animation: glow 1.5s infinite;
+    margin-top:20px;
+}
+@keyframes glow{
+    0%{box-shadow:0 0 5px #ff4f92}
+    100%{box-shadow:0 0 25px #ff4f92}
+}
+
+/*********** EMOTION PAGES ***********/
+.good{
+    background:#ffebf6;
+}
+.sad{
+    background:linear-gradient(to bottom,#8c9296,#2e6492);
+}
+
+/******** FINAL PAGE ********/
+.orange{
+    background:linear-gradient(to bottom,#fff6a6,#ffcc7d);
+}
+
+/******** SIDE BY SIDE BUTTONS ********/
+.choiceBox{
+    display:flex;
+    gap:20px;
+    margin-top:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+@media(max-width:600px){
+.paper{width:200px;height: 220px}
+.btn,.nextBtn{font-size:16px;padding:10px 20px}
+}
+</style>
+</head>
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="🩷";
+ h.style.left=Math.random()*100+"vw";
+ h.style.top=(Math.random()*100+50)+"vh";
+ h.style.animationDuration=(4+Math.random()*3)+"s";
+ document.body.appendChild(h);
+}
+</script>
+
+<div id="s1" class="screen show">
+<h1>Happy New Year Diti 🎀</h1>
+<p style="margin-top:10px;font-size:18px">
+Wishing you happiness, love and success ✨
+</p>
+<button id="seeBtn" class="btn">See What I Made For You 🎁</button>
+</div>
+
+<!-- ⭐⭐ NEW VIDEO PAGE (Between Page 1 & Page 2) ⭐⭐ -->
+<div id="videoPage" class="screen">
+<video id="specialVideo" width="90%" controls playsinline autoplay loop>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+<button id="goPapers" class="nextBtn">NEXT</button>
+</div>
+<!-- ⭐⭐ END NEW PAGE ⭐⭐ -->
+
+<div id="s2" class="screen">
+<h2>Move these papers 😊</h2>
+<div id="paperArea">
+
+    <div class="paper">
+<img src="image.1.jpg">
+<p class="msg">There's something truly captivating about you, not just how you look, but the aura you carry </p>
+</div>
+
+<div class="paper">
+<img src="IMG-20250903-WA0117.jpg">
+<p class="msg"> Your expresssions, grace and precision truly bring the dance to life. Every step feels soulful and beautiful.</p> 
+</div>
+
+<div class="paper">You should come with a warning label: 'Highly addictive'- side effects may include may include smiling too much, random butterflies, and constant daydreaming </div>
+<div class="paper">Hey, just wanted to remind you you’re doing amazing, even on days it doesn’t feel like it.Hope your day’s going as lovely as you are. Just thought I’d drop a little happiness your way 💕</div>
+
+</div>
+<button id="msgBtn" class="sparkBtn">Sender has a message for you ✨</button>
+</div>
+
+<div id="s3" class="screen">
+<p id="textBox" style="font-size:20px"></p>
+<button id="next1" class="nextBtn">NEXT</button>
+</div>
+
+<div id="s4" class="screen">
+<p style="font-size:20px">
+I'm sorry for the mistakes I have made ,I am grateful to God for sending you into my life, you have taught me many things and helped me to become better. THANK YOU ❤️
+</p>
+<div class="choiceBox">
+<button onclick="show('forgive')" class="btn showBtn">Forgive 🫂</button>
+<button onclick="show('dontcare')" class="btn showBtn">I Don't Care 😮‍💨</button>
+</div>
+</div>
+
+<div id="good" class="screen good">
+<p style="font-size:20px">
+Diti , You know u have a heart of gold that always shines bright like your personality, i won't do that emotional drama anymore instead i just want to wish you a happy and safe journey ahead.. I know u can do it , have faith in yourself. Take care
+</p>
+<button onclick="show('final')" class="btn showBtn">Last Message</button>
+</div>
+
+<div id="bad" class="screen sad">
+<p style="font-size:20px">
+ it's okay even if you hate me. I never wanted to make you uncomfortable but eventually I did and I apologize for that. You were, are and will be the best part of my life. Just know I'll always be there for you incase you need any help. Bye take care💙
+</p>
+<button onclick="show('final')" class="btn showBtn">Last Message</button>
+</div>
+
+<div id="finalPage" class="screen orange">
+<h2>WISHING YOU ALL THE BEST FOR YOUR EXAMS 🫂</h2>
+<p>Believe in yourself, You can score great marks! 🔥</p>
+</div>
+
+<script>
+function hideAll(){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("show"))}
+function show(x){
+ hideAll();
+ if(x=="forgive") good.classList.add("show");
+ else if(x=="dontcare") bad.classList.add("show");
+ else if(x=="final") finalPage.classList.add("show");
+}
+
+setTimeout(()=>seeBtn.classList.add("showBtn"),1000);
+
+/*** UPDATED FLOW ***/
+seeBtn.onclick=()=>{
+ hideAll();
+ videoPage.classList.add("show");
+
+ let vid=document.getElementById("specialVideo");
+ vid.currentTime=0;
+ vid.muted = false;
+ vid.loop = false;
+ vid.play();   // 🔊 Autoplay with sound
+ setTimeout(()=>goPapers.style.display="inline-block",1000);
+}
+
+goPapers.onclick=()=>{
+ hideAll();
+ s2.classList.add("show");
+}
+
+// MOBILE + PC SUPER SMOOTH DRAG
+let papers = document.querySelectorAll(".paper");
+
+papers.forEach(paper => {
+
+  let offsetX = 0;
+  let offsetY = 0;
+
+  function pointerMove(e) {
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+
+    paper.style.left = x + "px";
+    paper.style.top  = y + "px";
+  }
+
+  paper.addEventListener("pointerdown", e => {
+    paper.setPointerCapture(e.pointerId);
+
+    offsetX = e.clientX - paper.offsetLeft;
+    offsetY = e.clientY - paper.offsetTop;
+
+    document.addEventListener("pointermove", pointerMove, {passive:false});
+  });
+
+  document.addEventListener("pointerup", () => {
+  document.removeEventListener("pointermove", pointerMove);
+});
+
+
+});
+
+msgBtn.onclick=()=>{
+ hideAll();s3.classList.add("show");
+ let messages=[
+"I hope tum khush hogi 🫶🏻 sab acha chal raha hoga life me..On this very first of the year 2026 I dont want to ruin your mood. I just want to thank you. Thankyou for everything. You made my life better just by being in it. You will remain close to my heart, even after i move on I'll always be there for you, no pressure no hopes no expectations. I Just want ki tum apni life me khush raho 🫂.You are one of the most beautiful people i've met, not just because of your looks (they are incomparable) , but because of your kind heart and sweet smile.",
+"There is one particular day from last year that I often think about, not with regret or expectations, but with understanding. That day changed the way I look at life. It made me stop and think about how some moments, even if they are short, can still have a strong effect on us. Uss din ne mujhe bht kuch sikhaya about acceptance,honesty aur emotionally grow hone me help kari, especially tab jab chize vaisi nhi hoti jaisi humne sochi hoti hai. Some experiences stay with us not because of what we get from them, but because of what they teach us. For me, that day became one of those moments. It helped me grow, think more clearly, and become more responsible in the way I look at life.",
+"As this new phase begins for you, especially with your upcoming exams, I wish you confidence, focus, and best of luck. I hope your hard work gives you good results and helps you move closer to your goals. I hope you remember to take care of yourself while you work hard. All the best on your journey, may it bring you happiness, growth, and fulfillment. It'll be my pleasure if I succeed to make you little smile 😌. Keep shining bright, and know I'll be rooting for you every step on the way                Your diehard fan 🩷",
+
+ ];
+ let i=0;
+ textBox.innerHTML=messages[i];
+ setTimeout(()=>next1.style.display="inline-block",2000);
+ next1.onclick=function(){
+  i++;
+  if(i<messages.length){
+   textBox.innerHTML=messages[i];
+   next1.style.display="none";
+   setTimeout(()=>next1.style.display="inline-block",2000);
+  }else{
+   hideAll();
+   s4.classList.add("show");
+  }
+ }
+}
+</script>
+
+</body>
+</html>
